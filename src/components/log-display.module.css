@@ -1,0 +1,21 @@
+.header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.25rem;
+  background-color: gray;
+  color: white;
+  text-align: center;
+}
+
+.body {
+  padding: 0.5rem 1rem;
+  max-height: 25vh;
+  overflow-y: auto;
+}
+
+.timestamp {
+  font-size: 50%;
+  color: darkblue;
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}
