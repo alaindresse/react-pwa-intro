@@ -1,0 +1,15 @@
+.notification {
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: lightsteelblue;
+  text-align: center;
+}
+
+.button {
+  background-color: steelblue;
+  padding: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+}
