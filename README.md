@@ -1,68 +1,67 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# An introduction to progressive web apps with Create react app
 
-## Available Scripts
+Progressive web apps (PWAs) are the future of web.
 
-In the project directory, you can run:
+Create React App (CRA) brings all the tools necessary to generate a first-class PWA, focusing on three benefits
 
-### `npm start`
+- Cached static assets (http, css, js, images,...)
+- Offline mode
+- Add to home screen on mobile devices
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This guide starts by taking you through the few steps to achieve this in your app, and builds on it to bring two additional benefits
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Allow users to upgrade in one click when a new version is available
+- Handle incoming push notifications
 
-### `npm test`
+## Three practical steps to a rich-featured PWA with CRA
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Make your app "Install on home page ready"
 
-### `npm run build`
+   - add the icons
+   - register your service worker
+   - manual test with Lighthouse
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Allow your users to upgrade from within the app
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+   - create service worker context
+   - add notification for new content available
+   - manual test by changing files from build
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Get ready to receive push notifications
+   - allow users to register to notifications
+   - handle push notifications in your service worker
+   - manual test from application tab in developer tools
 
-### `npm run eject`
+## Highlights in the code
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Lighthouse readiness
+  - icons
+- Changes to serice worker registration (src/serviceWorker.js)
+  - make it work even if register called after page has loaded
+  - add onRegistration callback in config
+- Service worker context
+  - hasNewContent flag
+- New content notification
+- Register to push notifications
+- Service worker extension (custom-service-worker.js)
+  - cra-append-sw
+  - trigger update without closing tab
+  - handle incoming push notification
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## References
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Facebook
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- [Progressive web apps in Create react app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-## Learn More
+### Google
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+- [The Web App Manifest](https://developers.google.com/web/fundamentals/web-app-manifest/)
+- [Progressive Web Apps with React.js](https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-i-introduction-50679aef2b12)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  Rich source of well presented information on progressive web apps with react, even if somewhat dated (end 2016).
 
-### Code Splitting
+### Mozilla
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [MDN Progressive web apps](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
