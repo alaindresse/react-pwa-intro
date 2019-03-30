@@ -6,53 +6,54 @@ Create React App (CRA) brings all the tools necessary to generate a first-class 
 
 - Cached static assets (http, css, js, images,...)
 - Offline mode
-- Add to home screen on mobile devices
+- Allow "add to home screen" on mobile devices
 
 This guide starts by taking you through the few steps to achieve this in your app, and builds on it to bring two additional benefits
 
 - Allow users to upgrade in one click when a new version is available
 - Handle incoming push notifications
 
-## Three practical steps to a rich-featured PWA with CRA
+## Practical steps to a rich-featured PWA with CRA
 
 1. Make your app "Install on home page ready"
 
-   - add the icons
-   - register your service worker
-   - manual test with Lighthouse
+   - create logo files with 192 and 512 resolution
+   - update favicon to match
+   - update `manifest.json` to reference the logo files
 
 2. Allow your users to upgrade from within the app
 
-   - create service worker context
-   - add notification for new content available
-   - manual test by changing files from build
+   - make service worker status available to components
+     - create service worker "context" in react
+     - fix service worker registration 'src/serviceWorker.js' to register even if called after the page has loaded
+   - add notification for new content available, based on information from the service worker context
+   - extend service worker to call `skipWaiting`, triggered from the browser
 
 3. Get ready to receive push notifications
+
    - allow users to register to notifications
-   - handle push notifications in your service worker
-   - manual test from application tab in developer tools
+   - handle push notifications in the service worker extension
 
-## Highlights in the code
+4. Try it all out
 
-- Lighthouse readiness
-  - icons
-- Changes to serice worker registration (src/serviceWorker.js)
-  - make it work even if register called after page has loaded
-  - add onRegistration callback in config
-- Service worker context
-  - hasNewContent flag
-- New content notification
-- Register to push notifications
-- Service worker extension (custom-service-worker.js)
-  - cra-append-sw
-  - trigger update without closing tab
-  - handle incoming push notification
+   - run Lighthouse audit to see 100% compliance
+   - update files (manually in build folder) and see the 'update available' notification
+   - simulate a push notification from the developer tools.
+
+     Sample notification :
+
+     ```json
+     {
+       "notification": {
+         "title": "A title for your push notification",
+         "body": "A body for the push notification"
+       }
+     }
+     ```
+
+   - publish (e.g. on netlify) and browse on mobile
 
 ## References
-
-### Facebook
-
-- [Progressive web apps in Create react app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
 ### Google
 
@@ -61,6 +62,10 @@ This guide starts by taking you through the few steps to achieve this in your ap
 - [Progressive Web Apps with React.js](https://medium.com/@addyosmani/progressive-web-apps-with-react-js-part-i-introduction-50679aef2b12)
 
   Rich source of well presented information on progressive web apps with react, even if somewhat dated (end 2016).
+
+### Facebook
+
+- [Progressive web apps in Create react app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
 ### Mozilla
 
