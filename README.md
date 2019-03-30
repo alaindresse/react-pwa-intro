@@ -18,7 +18,7 @@ This guide starts by taking you through the few steps to achieve this in your ap
 1. Make your app "Install on home page ready"
 
    - create logo files with 192 and 512 resolution
-   - update favicon to match
+   - update favicon to match logo files
    - update `manifest.json` to reference the logo files
 
 2. Allow your users to upgrade from within the app
@@ -33,6 +33,8 @@ This guide starts by taking you through the few steps to achieve this in your ap
 
    - allow users to register to notifications
    - handle push notifications in the service worker extension
+   - focus client or open window on notification click
+   - send notification title and body to focused clients
 
 4. Try it all out
 
