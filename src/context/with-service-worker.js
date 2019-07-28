@@ -43,7 +43,7 @@ export const WithServiceWorker = ({ children }) => {
     });
 
     return () => serviceWorker.register();
-  }, []);
+  }, [logger, onRegistration, onSuccess, onUpdate]);
 
   const context = { hasNewContent, registration, logger };
   return (
