@@ -40,7 +40,7 @@ This guide starts by taking you through the few steps to achieve this in your ap
 
    - run Lighthouse audit to see 100% compliance
    - update files (manually in build folder) and see the 'update available' notification
-   - simulate a push notification from the developer tools.
+   - simulate a push notification from the developer tools. The notification must be a properly formatted json string.
 
      Sample notification :
 

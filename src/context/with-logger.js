@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState } from 'react';
 
 export const LoggerContext = createContext({
   logger: { logs: [], add: () => {} }
@@ -6,7 +6,7 @@ export const LoggerContext = createContext({
 
 export const WithLogger = ({ children }) => {
   const [logs, setLogs] = useState([]);
-  const add = (message: string) => {
+  const add = message => {
     setLogs(logs => [{ date: new Date(), message }, ...logs]);
   };
 

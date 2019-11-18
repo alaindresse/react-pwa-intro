@@ -31,7 +31,7 @@ export function register(config) {
       return;
     }
 
-    const handleRegistration = () => {
+    window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
@@ -50,10 +50,7 @@ export function register(config) {
         // Is not localhost. Just register service worker
         registerValidSW(swUrl, config);
       }
-    };
-    document.readyState === 'complete'
-      ? handleRegistration()
-      : window.addEventListener('load', handleRegistration);
+    });
   }
 }
 
@@ -95,10 +92,6 @@ function registerValidSW(swUrl, config) {
           }
         };
       };
-      // Execute callback
-      if (config && config.onRegistration) {
-        config.onRegistration(registration);
-      }
     })
     .catch(error => {
       console.error('Error during service worker registration:', error);
